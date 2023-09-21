@@ -1,0 +1,13 @@
+Src file structure:
+
+src
+├── components
+├── pages
+    ├──AuthenticationPages
+       ├── Signin.js
+       └── Signup.js
+    └── Dashboard.js
+├── Utility
+├── index.css
+├── index.js
+└── root.js
