@@ -1,9 +1,9 @@
 import React from 'react'
 import { RiEqualizerLine } from'react-icons/ri'
-import logo from '../Assets/logo.png'
-import Biology from '../Assets/biology.png'
-import CourseImg from '../Assets/course.png'
-import OngoingImg from '../Assets/ongoing.png'
+import logo from '../assets/logo.png'
+import Biology from '../assets/biology.png'
+import CourseImg from '../assets/course.png'
+import OngoingImg from '../assets/ongoing.png'
 import Navbar from '../components/Navbar'
 const Dashboard = () => {
   return (
