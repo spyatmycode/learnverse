@@ -1,14 +1,76 @@
 import React from 'react'
-import { RiEqualizerLine } from'react-icons/ri'
-import logo from '../Assets/logo.png'
-import Biology from '../Assets/biology.png'
-import CourseImg from '../Assets/course.png'
-import OngoingImg from '../Assets/ongoing.png'
+import { RiEqualizerLine, RiSearch2Line } from'react-icons/ri'
+import logo from '../assets/logo.png'
+import Biology from '../assets/biology.png'
+import CourseImg from '../assets/course.png'
+import OngoingImg from '../assets/ongoing.png'
 import Navbar from '../components/Navbar'
 const Dashboard = () => {
   return (
     <>
-      <div className=' bg-[#DEF1F5] px-[1em] pt-4 pb-[7em] w-full '>
+
+
+          {/* DESKTOP VIEW  */}
+          <div className=' hidden md:block bg-[#DEF1F5]'>
+              <nav className=' flex justify-between  items-center gap-8 text-white   bg-[#37494E] py-3 px-6'>
+                 <h1 className=' font-[600] text-[2.7em]'>Learn Verse</h1>
+                 <ul className=' flex  gap-6 justify-between items-center'>
+                  <li>Home</li>
+                  <li>My courses</li>
+                  <li>Library</li>
+                 </ul>
+
+                 <div>
+                 <div className='  flex  justify-end  relative '>
+              <span className=' bg-[#32d532] rounded-full w-3 h-3 absolute top-[-3px]'></span>
+              <img src={logo} className=' w-11 h-11' alt="" />
+            </div>
+
+                 </div>
+              </nav>
+
+
+               {/* SEARCH FUNCTION  */}
+
+               <div className='  bg-[#DEF1F5] px-[1em] pt-4 pb-[7em] w-full '>
+                <section className=' pt-5'>
+           <div className='  flex gap-4 mx-auto items-center justify-center '>
+            <div className=' relative flex  w-[50%] gap-6  justify-center items-center  '>
+              <input type="text"  className=' pl-9 w-full border-[.2px] py-3 rounded-xl ' />
+              <RiSearch2Line size={20} className=' font-thin top-0 m-auto h-full  left-2 absolute'/>
+              <div className=' bg-[#889ED7] w-fit rounded-lg p-3'>
+                 <RiEqualizerLine size={20} className=' '/>
+            </div>
+            </div>
+           </div>
+        </section>
+
+
+
+
+
+
+        <section className=' pt-5'>
+          <div>
+            
+          </div>
+          <div>
+
+          </div>
+
+        </section>
+
+
+
+               </div>
+        
+          </div>
+
+
+
+
+{/* MOBILE VIEW */}
+      <div className=' block md:hidden bg-[#DEF1F5] px-[1em] pt-4 pb-[7em] w-full '>
         <div>
             <div className=' flex w-full  items-center  justify-between'>
             <h1 className='  font-[600] '>Hi! Adams</h1>
