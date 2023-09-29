@@ -9,6 +9,7 @@ import Root from "../../Root";
 export const ROOT = "/";
 export const SIGNIN = "/signin";
 export const SIGNUP = "/signup";
+export const DASHBOARD = "/dashboard";
 
 // Configure routes below
 const router = createBrowserRouter([
