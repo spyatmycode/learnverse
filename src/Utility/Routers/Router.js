@@ -2,6 +2,7 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Signin from "../../Pages/AuthenticationPages/Signin";
 import Signup from "../../Pages/AuthenticationPages/Signup";
+import Welcome from "../../Pages/AuthenticationPages/Welcome";
 import Dashboard from "../../Pages/Dashboard";
 import Root from "../../Root";
 
@@ -10,6 +11,8 @@ export const ROOT = "/";
 export const SIGNIN = "/signin";
 export const SIGNUP = "/signup";
 export const DASHBOARD = "/dashboard";
+export const WELCOME = "/welcome";
+
 
 // Configure routes below
 const router = createBrowserRouter([
@@ -32,6 +35,11 @@ const router = createBrowserRouter([
   {
     path: SIGNUP,
     element: <Signup />,
+    errorElement: <h1>An Error Has Occured</h1>,
+  },
+  {
+    path: WELCOME,
+    element: <Welcome />,
     errorElement: <h1>An Error Has Occured</h1>,
   },
 ]);
