@@ -7,6 +7,7 @@ const Signin = () => {
   const [signInData, setSignInData] = useState({email:"", password:""})
 
   const handleChange = (e) => {
+    e.preventDefault()
     setSignInData({...signInData, [e.target.name]: e.target.value})
   }
 
@@ -15,17 +16,17 @@ const Signin = () => {
   return (
     <>
       <div className='flex h-screen w-full'>
-        <div className='flex flex-col items-center justify-center w-2/5 bg-gradient-to-r from-[#8498CB] via-[#8E89A4] to-[#9E7167]'>
+        <div className='hidden lg:flex flex-col items-center justify-center  lg:w-2/5 bg-gradient-to-r from-[#8498CB] via-[#8E89A4] to-[#9E7167]'>
 
           <img src={svg} width={"350px"} alt="" />
 
           <h1 className='font-extrabold text-6xl text-white'>LOGIN</h1>
 
         </div>
-        <div className='w-3/5 h-screen'>
+        <div className='lg:w-3/5 h-screen w-full'>
 
-          <div className='px-[30%] flex items-center flex-col gap-5 py-20'>
-            <h1 className='font-bold text-2xl'>
+          <div className='lg:px-[30%] px-10 flex items-center flex-col gap-5 py-20'>
+            <h1 className='font-bold text-4xl'>
               Welcome
             </h1>
             <p className='text-[#8F959E] text-sm'>
@@ -33,7 +34,7 @@ const Signin = () => {
             </p>
           </div>
 
-          <form className='px-[30%] py-20 flex flex-col  gap-12'>
+          <form className='lg:px-[30%] px-10 py-20 flex flex-col  gap-12'>
             <div className=' relative'>
 
               <label htmlFor="username" className='bg-white text-[#343434B2] absolute text-sm top-[-10px] left-[20px]'>Username</label>
