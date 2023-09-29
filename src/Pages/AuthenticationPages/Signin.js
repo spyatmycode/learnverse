@@ -29,7 +29,7 @@ const Signin = () => {
           <h1 className='font-extrabold text-6xl text-white'>LOGIN</h1>
 
         </div>
-        <div className='lg:w-3/5 h-screen w-full'>
+        <div className='lg:w-3/5 h-screen w-full lg:py-10'>
 
           <div className='lg:px-[30%] px-10 flex items-center flex-col gap-5 py-10'>
             <div className='absolute left-[10%] top-[10%] lg:hidden'>
@@ -43,15 +43,15 @@ const Signin = () => {
             </p>
           </div>
           <div className='lg:hidden px-10 flex items-center flex-col '>
-            <img src={svg} width={"200px"} alt="mobile__svg" />
+            <img src={svg}  className='w-[150px]' alt="mobile__svg" />
           </div>
 
-          <form className='lg:px-[30%] px-10 py-10 flex flex-col  gap-12' onSubmit={handleSubmit}>
+          <form className='lg:px-[30%] px-10 lg:py-20 flex flex-col gap-5 py-3  lg:gap-12' onSubmit={handleSubmit}>
             <div className=' relative'>
 
               <label htmlFor="username" className='bg-white text-[#343434B2] absolute text-sm top-[-10px] left-[20px]'>Username</label>
 
-              <input placeholder='Example@gmail.com' type="email" className='w-full border-2 border-[#67949E] py-2 px-5 rounded-full ' name='email' onChange={handleChange} />
+              <input placeholder='Example@gmail.com' type="email" className='w-full border-2 border-[#67949E] py-4 px-5 rounded-full ' name='email' onChange={handleChange} />
 
 
             </div>
@@ -59,7 +59,7 @@ const Signin = () => {
 
               <label htmlFor="username" className='text-[#343434B2] bg-white absolute text-sm top-[-10px] left-[20px]'>Password</label>
 
-              <input placeholder='Enter password' type="password" className='w-full border-2 border-[#67949E] py-2 px-5 rounded-full' name='password' onChange={handleChange} />
+              <input placeholder='Enter password' type="password" className='w-full border-2 border-[#67949E] py-4 px-5 rounded-full' name='password' onChange={handleChange} />
 
 
             </div>
