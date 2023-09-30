@@ -11,12 +11,12 @@ const Signup = () => {
   const [email, setEmail] = useState('');
 
   return (
-    <div className='flex flex-col h-screen justify-center mt-10 md:mt-0 align-middle text-center md:flex-row md:space-x-3'>
+    <div className='flex flex-col h-screen justify-center mt-1 overflow-hidden md:mt-0 align-middle text-center md:flex-row md:space-x-3'>
       {/* image */}
       <div className='flex flex-col-reverse justify-center align-middle text-center md:flex-none md:flex-col  md:w-1/2 md:h-screen md:bg-gradient-to-r from-[#8498CB] via-[#8E89A4] to-[#9E7167]'>
         {/* <AiOutlineArrowLeft size={35} className='mt-3 ml-3 text-black md:text-white' /> */}
         <img src={enterImg} alt='' className='pb-0' />
-        <h1 className='font-inter text-2xl md:font-poppins md:text-5xl font-bold leading-6 tracking-normal text-black md:text-white text-center pt-2 md:pt-0 md:mb-28'>
+        <h1 className='font-inter text-2xl md:font-poppins md:text-5xl font-bold leading-6 tracking-normal text-black md:text-white text-center md:mb-28'>
           SIGN UP
         </h1>
       </div>
@@ -86,7 +86,7 @@ const Signup = () => {
         >
           Sign Up
         </button>
-        <p className='pt-10 text-center text-sm text-gray-500'>
+        <p className='pt-0 md:pt-10 text-center text-sm text-gray-500'>
           Already have an account?
           <Link
             to={SIGNIN}
