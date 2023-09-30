@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import svg from '../../assets/E-payment and digital wallet securitylogin_svg.svg'
 import arrow from '../../assets/Arrow - Left.svg'
 import arrowmobile from '../../assets/Arrow - Leftmobile.svg'
+import { Link } from 'react-router-dom'
 
 const Signin = () => {
 
@@ -32,9 +33,10 @@ const Signin = () => {
         <div className='lg:w-3/5 h-screen w-full lg:py-10'>
 
           <div className='lg:px-[30%] px-10 flex items-center flex-col gap-5 py-10'>
+            <Link to={"/signup"}>
             <div className='absolute left-[10%] top-[10%] lg:hidden'>
               <img src={arrowmobile} width={"30px"} alt="arrow" />
-            </div>
+            </div></Link>
             <h1 className='font-bold text-4xl'>
               Welcome
             </h1>
