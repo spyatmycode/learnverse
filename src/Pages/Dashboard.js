@@ -16,6 +16,8 @@ import { signOut } from "firebase/auth";
 import {auth} from "../Utility/FirebaseConfig"
 import { useUser } from '../Hooks/AuthHook'
 const Dashboard = () => {
+  const [user, loading, error] = useUser();
+  console.log(user.uid)
 
 
   const {course,setCourse}=useContext(AppContext)
