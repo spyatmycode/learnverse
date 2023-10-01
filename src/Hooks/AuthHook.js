@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import {
   useCreateUserWithEmailAndPassword,
@@ -14,11 +14,6 @@ import { ROOT } from "../Utility/Routers/Router";
 // Get USER
 export const useUser = () => {
   const [user, loading, error] = useAuthState(auth);
-  const [userInfo, setUserInfo] = useState({})
-  
-  useEffect(()=>{
-
-  }, [loading])
 
   return [user, loading, error];
 };
