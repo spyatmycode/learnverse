@@ -92,7 +92,7 @@ const Signup = () => {
               className="block w-80 md:w-96 rounded-full border-0 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-4"
             />
           </div>
-          <Button type="Sign Up"/>
+          <Button type='Sign Up'/>
           <p className="pt-0 md:pt-10 text-center text-sm text-gray-500">
             Already have an account?
             <Link
