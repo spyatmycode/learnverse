@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { toast } from "react-toastify";
 import {
   useCreateUserWithEmailAndPassword,
@@ -10,7 +10,6 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import isUsernameExist from "../Utility/isUserNameExist";
 import { useNavigate } from "react-router-dom";
 import { ROOT } from "../Utility/Routers/Router";
-
 
 // Get USER
 export const useUser = () => {
@@ -43,6 +42,12 @@ export const useRegister = () => {
           username: username.toLowerCase(),
           avatar: "",
           date: Date.now(),
+          firstName: "",
+          lastName: "",
+          gender: "",
+          userType: "Student",
+          email: "",
+          dob: "",
         });
 
         toast.success("Account created", {
@@ -78,15 +83,20 @@ export const useLogin = () => {
 
   const login = async ({ email, password, redirectTo = ROOT }) => {
     setLoading(true);
-    try {
-      await signInWithEmailAndPassword(email, password);
+    await signInWithEmailAndPassword(email, password);
+    if (!error) {
       toast.success("Login Successful");
       navigate(redirectTo);
-    } catch (error) {
+      setLoading(false);
+    }
+
+    if (error) {
       toast.error(error.message);
       setLoading(false);
-      return false; //Return false if login failed
     }
+
+    return false; //Return false if login failed
+
     setLoading(false);
     return true;
   };

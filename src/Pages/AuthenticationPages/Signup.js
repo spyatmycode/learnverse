@@ -5,6 +5,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import SIGNIN from "../../Utility/Routers/Router";
 import { useRegister } from "../../Hooks/AuthHook";
+import Button from "../../components/UI/Button";
 
 const Signup = () => {
   const [userName, setUserName] = useState("");
@@ -91,12 +92,7 @@ const Signup = () => {
               className="block w-80 md:w-96 rounded-full border-0 py-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 p-4"
             />
           </div>
-          <button
-            type="submit"
-            className="flex w-80 md:w-96 justify-center rounded-full bg-gradient-to-r from-[#8498CB] via-[#8E89A4] to-[#9E7167]  px-3 py-3 text-sm font-semibold leading-6 text-white shadow-sm  focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-          >
-            Sign Up
-          </button>
+          <Button type="Sign Up"/>
           <p className="pt-0 md:pt-10 text-center text-sm text-gray-500">
             Already have an account?
             <Link

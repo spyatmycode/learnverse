@@ -3,6 +3,7 @@ import svg from '../../assets/E-payment and digital wallet securitylogin_svg.svg
 
 import arrowmobile from '../../assets/Arrow - Leftmobile.svg'
 import { useLogin } from '../../Hooks/AuthHook'
+import Button from '../../components/UI/Button'
 
 const Signin = () => {
 
@@ -66,9 +67,7 @@ const Signin = () => {
             </div>
 
             <div className='flex w-full justify-center'>
-              <button className='lg:border-[#9E7167] lg:border-2 lg:rounded-lg px-20 py-2 shadow-lg font-bold text-xl lg:text-[#9E7167] rounded-full bg-gradient-to-r from-[#8498CB] via-[#8E89A4] to-[#9E7167] text-white lg:bg-none '>
-                Login
-              </button>
+              <Button type="Sign In"/>
             </div>
 
             <div className='flex justify-end'>

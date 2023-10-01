@@ -7,6 +7,7 @@ import OngoingImg from '../assets/ongoing.png'
 import Navbar from '../components/Navbar'
 import { signOut } from "firebase/auth";
 import {auth} from "../Utility/FirebaseConfig"
+import { useUser } from '../Hooks/AuthHook'
 
 const Dashboard = () => {
 
