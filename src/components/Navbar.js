@@ -6,7 +6,7 @@ import { AiOutlineUser } from 'react-icons/ai'
 
 
 const Navbar = () => {
-  console.log('helo');
+ 
    
   return (<>
     <nav className=' hidden  lg:flex justify-between  items-center gap-8 text-white   bg-[#37494E] py-3 px-[10em]'>
