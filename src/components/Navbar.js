@@ -6,6 +6,7 @@ import { AiOutlineUser } from 'react-icons/ai'
 
 
 const Navbar = () => {
+  console.log('helo');
    
   return (<>
     <nav className=' hidden  lg:flex justify-between  items-center gap-8 text-white   bg-[#37494E] py-3 px-[10em]'>
@@ -43,7 +44,7 @@ const Navbar = () => {
                 </div>
                
                 <div className=' flex justify-center items-center flex-col gap-1'>
-                <RiBook3Line className=' text-[#9E7167] ' size={30}/>
+                <RiBook3Line className='  text-[#9E7167] ' size={30}/>
                 <h1>Library</h1>
                 </div>
                
