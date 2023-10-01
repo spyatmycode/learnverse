@@ -48,7 +48,7 @@ const Signin = () => {
             <img src={svg}  className='w-[150px]' alt="mobile__svg" />
           </div>
 
-          <form className='lg:px-[30%] px-10 lg:py-20 flex flex-col gap-5 py-3  lg:gap-[1.6rem]' onSubmit={handleSubmit}>
+          <form className='lg:px-[30%] px-10 lg:py-16 flex flex-col gap-4 py-3  lg:gap-[1.6rem]' onSubmit={handleSubmit}>
             <div className=' relative'>
 
               <label htmlFor="username" className='bg-white text-[#343434B2] absolute text-sm top-[-10px] left-[20px]'>Username</label>
