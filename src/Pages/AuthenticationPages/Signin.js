@@ -50,7 +50,7 @@ const Signin = () => {
           <form className='lg:px-[30%] px-10 lg:py-20 flex flex-col gap-5 py-3  lg:gap-12' onSubmit={handleSubmit}>
             <div className=' relative'>
 
-              <label htmlFor="username" className='bg-white text-[#343434B2] absolute text-sm top-[-10px] left-[20px]'>Username</label>
+              <label htmlFor="username" className='bg-white text-[#343434B2] absolute text-sm top-[-10px] left-[20px]'>Email</label>
 
               <input placeholder='Example@gmail.com' type="email" className='w-full border-2 border-[#67949E] py-4 px-5 rounded-full ' name='email' onChange={handleChange} />
 

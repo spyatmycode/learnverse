@@ -7,7 +7,7 @@ const ProtectedComponent = ({ children }) => {
   const [user, loading, error] = useUser();
 
 
-  if (!user || !loading) {
+  if (!user) {
     return <Navigate to={SIGNIN} />;
   }
   return <>{children}</>;

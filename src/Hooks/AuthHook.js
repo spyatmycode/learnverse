@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { toast } from "react-toastify";
 import {
   useCreateUserWithEmailAndPassword,
@@ -6,12 +6,13 @@ import {
   useAuthState,
 } from "react-firebase-hooks/auth";
 import { auth, db } from "../Utility/FirebaseConfig";
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import isUsernameExist from "../Utility/isUserNameExist";
 import { useNavigate } from "react-router-dom";
 import { ROOT } from "../Utility/Routers/Router";
 
-// User
+
+// Get USER
 export const useUser = () => {
   const [user, loading, error] = useAuthState(auth);
 

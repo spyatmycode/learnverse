@@ -7,7 +7,9 @@ import OngoingImg from '../assets/ongoing.png'
 import Navbar from '../components/Navbar'
 import { signOut } from "firebase/auth";
 import {auth} from "../Utility/FirebaseConfig"
+
 const Dashboard = () => {
+
   return (
     <>
       <div className=' bg-[#DEF1F5] px-[1em] pt-4 pb-[7em] w-full '>
