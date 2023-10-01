@@ -5,12 +5,12 @@ import Signup from "../../Pages/AuthenticationPages/Signup";
 import Welcome from "../../Pages/AuthenticationPages/Welcome";
 import Dashboard from "../../Pages/Dashboard";
 import Root from "../../Root";
-<<<<<<< HEAD
+
 import Quiz from "../../Pages/Quiz/Quiz";
 import Instructions from "../../Pages/Quiz/Instructions";
-=======
+
 import ProtectedComponent from "../ProtectedComponent";
->>>>>>> 70bda8399109a5fbba14fdbe67c6420952f05f07
+
 
 // Export Route paths
 export const ROOT = "/";
