@@ -3,13 +3,13 @@ import { toast } from "react-toastify";
 import {
   useCreateUserWithEmailAndPassword,
   useSignInWithEmailAndPassword,
-  useAuthState,
+  useAuthState, useSignOut
 } from "react-firebase-hooks/auth";
 import { auth, db } from "../Utility/FirebaseConfig";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import isUsernameExist from "../Utility/isUserNameExist";
 import { useNavigate } from "react-router-dom";
-import { ROOT } from "../Utility/Routers/Router";
+import { ROOT, SIGNIN } from "../Utility/Routers/Router";
 
 // Get USER
 export const useUser = () => {
@@ -116,4 +116,17 @@ export const useLogin = () => {
     }
   };
   return [login, isLoading];
+};
+
+// Logout Hook
+export const useLogout = () => {
+  const [signOut, loading, error] = useSignOut(auth);
+  const navigate = useNavigate();
+  const logout = async () => {
+    if (await signOut()) {
+      toast.success("Successfully logged out");
+      navigate(SIGNIN);
+    }
+  };
+  return [ logout, loading ];
 };
