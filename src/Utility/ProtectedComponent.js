@@ -4,9 +4,10 @@ import { useUser } from "../Hooks/AuthHook";
 import { WELCOME } from "./Routers/Router";
 
 const ProtectedComponent = ({ children }) => {
-  const [user, loading, error] = useUser();
+  const [userInfo, isLoading] = useUser();
 
-  if (!user) {
+
+  if (!userInfo && !isLoading) {
     return <Navigate to={WELCOME} />;
   }
   return <>{children}</>;

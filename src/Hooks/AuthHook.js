@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import {
   useCreateUserWithEmailAndPassword,
@@ -14,8 +14,26 @@ import { ROOT } from "../Utility/Routers/Router";
 // Get USER
 export const useUser = () => {
   const [user, loading, error] = useAuthState(auth);
+  const [isLoading, setLoading] = useState(true);
+  const [userInfo, setUserInfo] = useState(null);
 
-  return [user, loading, error];
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true)
+      const docRef = doc(db, "users", user.uid);
+
+      const docSnap = await getDoc(docRef);
+      setUserInfo((prevState) => docSnap.data());
+      setLoading(false)
+    };
+    if (!loading) {
+      if (user) {
+        fetchData();
+      } else setLoading(false)
+    }
+  }, [loading]);
+
+  return [userInfo, isLoading];
 };
 
 // Register hook
