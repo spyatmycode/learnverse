@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import svg from '../../assets/E-payment and digital wallet securitylogin_svg.svg'
-import arrow from '../../assets/Arrow - Left.svg'
+
 import arrowmobile from '../../assets/Arrow - Leftmobile.svg'
+import { useLogin } from '../../Hooks/AuthHook'
 
 const Signin = () => {
 
   const [signInData, setSignInData] = useState({ email: "", password: "" })
+  const [login, isLoading] = useLogin()
 
   const handleChange = (e) => {
     e.preventDefault()
@@ -14,10 +16,9 @@ const Signin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    login(signInData)
 
   }
-
-  console.log(signInData);
 
   return (
     <>

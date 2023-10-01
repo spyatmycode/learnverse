@@ -5,6 +5,8 @@ import Biology from '../assets/biology.png'
 import CourseImg from '../assets/course.png'
 import OngoingImg from '../assets/ongoing.png'
 import Navbar from '../components/Navbar'
+import { signOut } from "firebase/auth";
+import {auth} from "../Utility/FirebaseConfig"
 const Dashboard = () => {
   return (
     <>
@@ -12,7 +14,7 @@ const Dashboard = () => {
         <div>
             <div className=' flex w-full  items-center  justify-between'>
             <h1 className='  font-[600] '>Hi! Adams</h1>
-            <div className='  flex  justify-end  relative '>
+            <div className='  flex  justify-end  relative ' onClick={()=>signOut(auth)}>
               <span className=' bg-[#32d532] rounded-full w-3 h-3 absolute top-[-3px]'></span>
               <img src={logo} className=' w-[50%]' alt="" />
             </div>
