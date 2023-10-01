@@ -9,6 +9,8 @@ import { AppProvider } from "../../Context/AppContext";
 import Course from "../../Pages/Course";
 import EachCourseTopic from "../../Pages/EachCourseTopic";
 
+import ProtectedComponent from "../ProtectedComponent";
+
 // Export Route paths
 export const ROOT = "/";
 export const SIGNIN = "/signin";
@@ -18,12 +20,15 @@ export const WELCOME = "/welcome";
 export const COURSE = "/course/:id";
 export const EACHCOURSE = "/course/:id/:id";
 
-
 // Configure routes below
 const router = createBrowserRouter([
   {
     path: ROOT,
-    element: <Root />,
+    element: (
+      <ProtectedComponent>
+        <Root />
+      </ProtectedComponent>
+    ),
     errorElement: <h1>An Error Has Occured</h1>,
     children: [
       {

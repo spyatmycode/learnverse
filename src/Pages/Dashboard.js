@@ -12,6 +12,9 @@ import Man from '../assets/man.png'
 import Navbar from '../components/Navbar'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { AppContext } from '../Context/AppContext'
+import { signOut } from "firebase/auth";
+import {auth} from "../Utility/FirebaseConfig"
+import { useUser } from '../Hooks/AuthHook'
 const Dashboard = () => {
 
 
@@ -25,6 +28,8 @@ const Dashboard = () => {
   }
   console.log(course);
   
+
+
 
 
   return (
@@ -201,7 +206,7 @@ const Dashboard = () => {
         <div>
             <div className=' flex w-full  items-center  justify-between'>
             <h1 className='  font-[600] '>Hi! Adams</h1>
-            <div className='  flex  justify-end  relative '>
+            <div className='  flex  justify-end  relative ' onClick={()=>signOut(auth)}>
               <span className=' bg-[#32d532] rounded-full w-3 h-3 absolute top-[-3px]'></span>
               <img src={logo} className=' w-[50%]' alt="" />
             </div>
