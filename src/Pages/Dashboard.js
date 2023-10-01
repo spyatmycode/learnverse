@@ -16,8 +16,7 @@ import { signOut } from "firebase/auth";
 import {auth} from "../Utility/FirebaseConfig"
 import { useUser } from '../Hooks/AuthHook'
 const Dashboard = () => {
-  const [user, loading, error] = useUser();
-  console.log(user.uid)
+  const [userInfo, isLoading] = useUser();
 
 
   const {course,setCourse}=useContext(AppContext)
@@ -207,7 +206,7 @@ const Dashboard = () => {
       <div className=' block lg:hidden bg-[#DEF1F5] px-[1em] pt-4 pb-[9em] w-full '>
         <div>
             <div className=' flex w-full  items-center  justify-between'>
-            <h1 className='  font-[600] '>Hi! Adams</h1>
+            <h1 className='  font-[600] '>Hi! {userInfo?.username}</h1>
             <div className='  flex  justify-end  relative ' onClick={()=>signOut(auth)}>
               <span className=' bg-[#32d532] rounded-full w-3 h-3 absolute top-[-3px]'></span>
               <img src={logo} className=' w-[50%]' alt="" />
