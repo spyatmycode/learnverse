@@ -15,7 +15,7 @@ const EachCourseTopic = () => {
 
   return (
     <>
-    <Navbar/>
+  
     <div className='   px-[1em] pt-7 pb-[9em] w-full   bg-[#DEF1F5]'>
         
         <div>

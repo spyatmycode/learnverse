@@ -3,13 +3,13 @@ import Navbar from "./components/Navbar";
 
 function Root() {
   return (
-    <div className="flex flex-col">
-      <Navbar />
+    <>
       {/* Layouts such as headers and footers */}
+      <Navbar/>
       <Outlet />
 
       {/* Route Outlet Goes here */}
-    </div>
+    </>
   );
 }
 

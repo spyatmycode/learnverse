@@ -60,14 +60,33 @@ const router = createBrowserRouter([
   },
   {
     path: COURSE,
-    element: <Course />,
+    element: (
+      <ProtectedComponent>
+        <Root />
+      </ProtectedComponent>
+    ),
     errorElement: <h1>An Error Has Occured</h1>,
-  },
+    children: [
+      {
+        index: true,
+        element: <Course />,
+      },
+    ]},
+
   {
     path: EACHCOURSE,
-    element: <EachCourseTopic />,
+      element: (
+      <ProtectedComponent>
+        <Root />
+      </ProtectedComponent>
+    ),
     errorElement: <h1>An Error Has Occured</h1>,
-  },
+    children: [
+      {
+        index: true,
+        element: <EachCourseTopic />,
+      },
+    ]},
 ]);
 const Router = () => {
   return(
