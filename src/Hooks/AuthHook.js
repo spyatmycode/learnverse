@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import {
-  useCreateUserWithEmailAndPassword,
   useSignInWithEmailAndPassword,
-  useAuthState, useSignOut
+  useAuthState,
+  useSignOut,
 } from "react-firebase-hooks/auth";
 import { auth, db } from "../Utility/FirebaseConfig";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import isUsernameExist from "../Utility/isUserNameExist";
 import { useNavigate } from "react-router-dom";
 import { ROOT, SIGNIN } from "../Utility/Routers/Router";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 // Get USER
 export const useUser = () => {
@@ -19,17 +20,17 @@ export const useUser = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setLoading(true)
+      setLoading(true);
       const docRef = doc(db, "users", user.uid);
 
       const docSnap = await getDoc(docRef);
       setUserInfo((prevState) => docSnap.data());
-      setLoading(false)
+      setLoading(false);
     };
     if (!loading) {
       if (user) {
         fetchData();
-      } else setLoading(false)
+      } else setLoading(false);
     }
   }, [loading]);
 
@@ -40,10 +41,13 @@ export const useUser = () => {
 export const useRegister = () => {
   const [isLoading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
 
-  const register = async ({ username, email, password, redirectTo = ROOT }) => {
+  const register = async ({
+    username,
+    email,
+    password,
+    redirectTo = ROOT,
+  }) => {
     setLoading(true);
 
     const usernameExists = await isUsernameExist(username);
@@ -53,7 +57,7 @@ export const useRegister = () => {
       setLoading(false);
     } else {
       try {
-        const res = await createUserWithEmailAndPassword(email, password);
+        const res = await createUserWithEmailAndPassword(auth, email, password);
         const docReference = doc(db, "users", res.user.uid);
         await setDoc(docReference, {
           id: res.user.uid,
@@ -68,16 +72,7 @@ export const useRegister = () => {
           dob: "",
         });
 
-        toast.success("Account created", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        toast.success("Account created");
 
         navigate(redirectTo);
       } catch (error) {
@@ -88,7 +83,7 @@ export const useRegister = () => {
     }
   };
 
-  return [register, isLoading];
+  return [ register, isLoading ];
 };
 
 // Login hook
@@ -128,5 +123,5 @@ export const useLogout = () => {
       navigate(SIGNIN);
     }
   };
-  return [ logout, loading ];
+  return [logout, loading];
 };
