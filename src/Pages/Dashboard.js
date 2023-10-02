@@ -39,7 +39,7 @@ const Dashboard = () => {
 
           {/* DESKTOP VIEW  */}
           <div className=' hidden lg:block bg-[#DEF1F5]'>
-            <Navbar/>
+          
 
 
                {/* SEARCH FUNCTION  */}
@@ -343,7 +343,7 @@ const Dashboard = () => {
       </section>
 
         
-           <Navbar/>
+        
         
       
         
