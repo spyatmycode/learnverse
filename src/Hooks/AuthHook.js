@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import {
-  useSignInWithEmailAndPassword,
-  useAuthState,
-  useSignOut,
-} from "react-firebase-hooks/auth";
+import { useAuthState, useSignOut } from "react-firebase-hooks/auth";
 import { auth, db } from "../Utility/FirebaseConfig";
 import { doc, getDoc, setDoc } from "firebase/firestore";
 import isUsernameExist from "../Utility/isUserNameExist";
 import { useNavigate } from "react-router-dom";
 import { ROOT, SIGNIN } from "../Utility/Routers/Router";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
 
 // Get USER
 export const useUser = () => {
@@ -42,12 +38,7 @@ export const useRegister = () => {
   const [isLoading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const register = async ({
-    username,
-    email,
-    password,
-    redirectTo = ROOT,
-  }) => {
+  const register = async ({ username, email, password, redirectTo = ROOT }) => {
     setLoading(true);
 
     const usernameExists = await isUsernameExist(username);
@@ -83,31 +74,28 @@ export const useRegister = () => {
     }
   };
 
-  return [ register, isLoading ];
+  return [register, isLoading];
 };
 
 // Login hook
 export const useLogin = () => {
   // Loading state
   const [isLoading, setLoading] = useState(false);
-  const [signInWithEmailAndPassword, user, loading, error] =
-    useSignInWithEmailAndPassword(auth);
   const navigate = useNavigate();
 
   const login = async ({ email, password, redirectTo = ROOT }) => {
     setLoading(true);
-    await signInWithEmailAndPassword(email, password);
-    if (!error) {
-      toast.success("Login Successful");
-      navigate(redirectTo);
-      setLoading(false);
-      return true;
-    }
-
-    if (error) {
+    try {
+      const res = await signInWithEmailAndPassword(auth, email, password);
+      if (res) {
+        setLoading(false)
+        toast.success("Login Successful");
+        navigate(redirectTo);
+      }
+    } catch (error) {
       toast.error(error.message);
       setLoading(false);
-      return false; //Return false if login failed
+      return false;
     }
   };
   return [login, isLoading];
