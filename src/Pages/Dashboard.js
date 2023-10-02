@@ -342,8 +342,10 @@ const Dashboard = () => {
           </div>
       </section>
 
-
-      <Navbar/>
+        
+           <Navbar/>
+        
+      
         
         
       </div>
