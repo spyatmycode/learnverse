@@ -6,6 +6,7 @@ import Welcome from "../../Pages/AuthenticationPages/Welcome";
 import Dashboard from "../../Pages/Dashboard";
 import Root from "../../Root";
 import ProtectedComponent from "../ProtectedComponent";
+import { AppProvider } from "../../Context/AppContext";
 
 
 // Export Route paths
