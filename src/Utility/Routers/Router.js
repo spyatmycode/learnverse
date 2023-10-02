@@ -9,6 +9,7 @@ import ProtectedComponent from "../ProtectedComponent";
 import { AppProvider } from "../../Context/AppContext";
 import Course from "../../Pages/Course";
 import EachCourseTopic from "../../Pages/EachCourseTopic";
+import Profile from "../../Pages/Profile";
 
 // Export Route paths
 export const ROOT = "/";
@@ -16,9 +17,9 @@ export const SIGNIN = "/signin";
 export const SIGNUP = "/signup";
 export const DASHBOARD = "/dashboard";
 export const WELCOME = "/welcome";
-
 export const COURSE = "/course/:id";
 export const EACHCOURSE = "/course/:id/:id";
+export const PROFILE = "/profile"
 
 
 
@@ -36,7 +37,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Dashboard />,
-      },
+      }, {
+        path: PROFILE,
+        element: <Profile />
+      }
     ],
   },
   {
