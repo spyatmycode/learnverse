@@ -1,11 +1,18 @@
 import React, { useState } from 'react'
 import svg from '../../assets/E-payment and digital wallet securitylogin_svg.svg'
-import arrow from '../../assets/Arrow - Left.svg'
+
 import arrowmobile from '../../assets/Arrow - Leftmobile.svg'
+
+import { Link } from 'react-router-dom'
+
+import { useLogin } from '../../Hooks/AuthHook'
+import Button from '../../components/UI/Button'
+
 
 const Signin = () => {
 
   const [signInData, setSignInData] = useState({ email: "", password: "" })
+  const [login, isLoading] = useLogin()
 
   const handleChange = (e) => {
     e.preventDefault()
@@ -14,15 +21,14 @@ const Signin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    login(signInData)
 
   }
-
-  console.log(signInData);
 
   return (
     <>
       <div className='flex h-screen w-full'>
-        <div className='hidden lg:flex flex-col items-center justify-center  lg:w-2/5 bg-gradient-to-r from-[#8498CB] via-[#8E89A4] to-[#9E7167]'>
+        <div className='h-screen hidden lg:flex flex-col items-center justify-center  lg:w-2/5 bg-gradient-to-r from-[#8498CB] via-[#8E89A4] to-[#9E7167]'>
 
           <img src={svg} width={"350px"} alt="" />
 
@@ -32,9 +38,10 @@ const Signin = () => {
         <div className='lg:w-3/5 h-screen w-full lg:py-10'>
 
           <div className='lg:px-[30%] px-10 flex items-center flex-col gap-5 py-10'>
+            <Link to={"/signup"}>
             <div className='absolute left-[10%] top-[10%] lg:hidden'>
               <img src={arrowmobile} width={"30px"} alt="arrow" />
-            </div>
+            </div></Link>
             <h1 className='font-bold text-4xl'>
               Welcome
             </h1>
@@ -46,10 +53,10 @@ const Signin = () => {
             <img src={svg}  className='w-[150px]' alt="mobile__svg" />
           </div>
 
-          <form className='lg:px-[30%] px-10 lg:py-20 flex flex-col gap-5 py-3  lg:gap-12' onSubmit={handleSubmit}>
+          <form className='lg:px-[30%] px-10 lg:py-16 flex flex-col gap-4 py-3  lg:gap-[1.6rem]' onSubmit={handleSubmit}>
             <div className=' relative'>
 
-              <label htmlFor="username" className='bg-white text-[#343434B2] absolute text-sm top-[-10px] left-[20px]'>Username</label>
+              <label htmlFor="username" className='bg-white text-[#343434B2] absolute text-sm top-[-10px] left-[20px]'>Email</label>
 
               <input placeholder='Example@gmail.com' type="email" className='w-full border-2 border-[#67949E] py-4 px-5 rounded-full ' name='email' onChange={handleChange} />
 
@@ -65,9 +72,7 @@ const Signin = () => {
             </div>
 
             <div className='flex w-full justify-center'>
-              <button className='lg:border-[#9E7167] lg:border-2 lg:rounded-lg px-20 py-2 shadow-lg font-bold text-xl lg:text-[#9E7167] rounded-full bg-gradient-to-r from-[#8498CB] via-[#8E89A4] to-[#9E7167] text-white lg:bg-none '>
-                Login
-              </button>
+              <Button type="Sign In"/>
             </div>
 
             <div className='flex justify-end'>
@@ -83,9 +88,9 @@ const Signin = () => {
                 </p>
 
 
-                <label class="relative inline-flex items-center cursor-pointer">
-                  <input type="checkbox" value="" class="sr-only peer" />
-                  <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
+                <label className="relative inline-flex items-center cursor-pointer">
+                  <input type="checkbox" value="" className="sr-only peer" />
+                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
 
                 </label>
 
