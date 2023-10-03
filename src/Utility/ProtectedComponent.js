@@ -1,14 +1,14 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 import { useUser } from "../Hooks/AuthHook";
-import { SIGNIN } from "./Routers/Router";
+import { WELCOME } from "./Routers/Router";
 
 const ProtectedComponent = ({ children }) => {
-  const [user, loading, error] = useUser();
+  const [userInfo, isLoading] = useUser();
 
 
-  if (!user) {
-    return <Navigate to={SIGNIN} />;
+  if (!userInfo && !isLoading) {
+    return <Navigate to={WELCOME} />;
   }
   return <>{children}</>;
 };

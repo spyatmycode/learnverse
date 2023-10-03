@@ -5,12 +5,11 @@ import Signup from "../../Pages/AuthenticationPages/Signup";
 import Welcome from "../../Pages/AuthenticationPages/Welcome";
 import Dashboard from "../../Pages/Dashboard";
 import Root from "../../Root";
-
-import Quiz from "../../Pages/Quiz/Quiz";
-import Instructions from "../../Pages/Quiz/Instructions";
-
 import ProtectedComponent from "../ProtectedComponent";
-
+import { AppProvider } from "../../Context/AppContext";
+import Course from "../../Pages/Course";
+import EachCourseTopic from "../../Pages/EachCourseTopic";
+import Profile from "../../Pages/Profile";
 
 // Export Route paths
 export const ROOT = "/";
@@ -18,8 +17,11 @@ export const SIGNIN = "/signin";
 export const SIGNUP = "/signup";
 export const DASHBOARD = "/dashboard";
 export const WELCOME = "/welcome";
-export const QUIZ = "/quiz"
-export const INSTRUCTIONS = "/instructions"
+export const COURSE = "/course/:id";
+export const EACHCOURSE = "/course/:id/:id";
+export const PROFILE = "/profile"
+
+
 
 // Configure routes below
 const router = createBrowserRouter([
@@ -35,7 +37,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Dashboard />,
-      },
+      }, {
+        path: PROFILE,
+        element: <Profile />
+      }
     ],
   },
   {
@@ -54,18 +59,41 @@ const router = createBrowserRouter([
     errorElement: <h1>An Error Has Occured</h1>,
   },
   {
-    path: QUIZ,
-    element: <Quiz />,
+    path: COURSE,
+    element: (
+      <ProtectedComponent>
+        <Root />
+      </ProtectedComponent>
+    ),
     errorElement: <h1>An Error Has Occured</h1>,
-  },
+    children: [
+      {
+        index: true,
+        element: <Course />,
+      },
+    ]},
+
   {
-    path: INSTRUCTIONS,
-    element: <Instructions />,
+    path: EACHCOURSE,
+      element: (
+      <ProtectedComponent>
+        <Root />
+      </ProtectedComponent>
+    ),
     errorElement: <h1>An Error Has Occured</h1>,
-  },
+    children: [
+      {
+        index: true,
+        element: <EachCourseTopic />,
+      },
+    ]},
 ]);
 const Router = () => {
-  return <RouterProvider router={router} />;
+  return(
+    <AppProvider>
+    <RouterProvider router={router} />
+    </AppProvider>
+   )
 };
 
 export default Router;
